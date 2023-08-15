@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+
+html, body { height: 100%; }
+body { margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+button {
+  background-color: transparents;
+}
+
+:root {
+  --primary : #87CEEB;
+  --secondary : #344A53;
+  --text : #555555;
+  --lightgrey : ##97AFBA;
+  --background : #c1f5e4;
+  --secondaryLight : #F3f2f3;
+  --white : rgba(255,255,255,.7);
+  --background2 : #ADA8A6;
+  --backgroundgradient:linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+}
+
+body {
+  font-family: "Roboto", helvetica, arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  color:var(--secondary);
+  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+
+
+}

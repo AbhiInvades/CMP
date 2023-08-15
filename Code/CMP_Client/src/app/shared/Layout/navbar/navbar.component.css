@@ -1,0 +1,58 @@
+.navbar {
+  display : flex
+}
+
+.left {
+  margin-left: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align:center;
+}
+.logo {
+  vertical-align:middle;
+  margin-right:70px;
+  display:flex;
+  flex-direction: row;
+  font-size: 15px ;
+  cursor: pointer;
+}
+
+
+button {
+  margin : 20px;
+  color : var(--text);
+  padding: .5em;
+  background-color: transparent;
+  height: 40px;
+  border-radius: 10%;
+  min-width: 70px;
+}
+
+.right {
+  margin-right : 300px;
+  margin-left : auto;
+  margin-top : 5px;
+}
+
+.title {
+  margin-left: 70px;
+}
+
+mat-icon {
+  vertical-align: middle;
+  width: 100px;
+  height: 50px;
+}
+
+button {
+  border: 0;
+  font-weight: bolder;
+  font-size: 15px;
+}
+
+img {
+  height: 40px;
+}
+
+

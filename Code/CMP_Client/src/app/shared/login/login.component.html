@@ -1,0 +1,52 @@
+
+
+
+<div class="container">
+  <div class="form">
+    <form #loginform="ngForm" (ngSubmit)="submit(loginform)" class="form">
+
+
+      <div class="input">
+        <input type="text" name="username"  minlength="2" ngModel placeholder="|" required #Username="ngModel">
+        <label class="text">Username</label>
+        <mat-icon>person</mat-icon>
+      </div>
+      <div *ngIf="Username.invalid && (Username.dirty || Username.touched)" class="alert">
+        <div *ngIf="Username.errors?.['required']">
+          Username is required.
+        </div>
+      </div>
+      <div class="input">
+        <input type="password" name="password" ngModel placeholder="|" required #password="ngModel">
+        <label class="text">Password</label>
+        <mat-icon>lock</mat-icon>
+      </div>
+      <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert">
+        <div *ngIf="password.errors?.['required']">
+          Password is required.
+        </div>
+      </div>
+
+      <!-- <div class="dropdown" >
+        <select [(ngModel)]="admin.role">
+          <option value="undefined" selected disabled>Select Role</option>
+          <option *ngFor="let role of roles" value="{{role.id}}">
+            {{role.role}}
+          </option>
+        </select>
+      </div> -->
+      <br>
+      <div>
+        <input type="checkbox" class="checkbox" ngModel name="isPersistent" >
+        <label>Remember me</label>
+      </div>
+      <div class="login">
+        <button mat-stroked type="submit" class="btn btn-primary" [disabled]="Username.invalid || password.invalid">  <span style="margin-top: auto;margin-bottom: auto;">Login</span> </button>
+      </div>
+
+    </form>
+  </div>
+  <div></div>
+
+</div>
+

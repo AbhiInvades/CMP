@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="table">
+    <div class="header">
+
+        <h2>List Of Clinics</h2>
+      <button routerLink="/clinic/add">Add Clinic</button>
+
+    </div>
+
+
+  <section>
+    <mat-table color="success" *ngIf="dataSource && isLoaded && dataSource.length>0" [dataSource]="dataSource | paginate:{itemsPerPage:itemsToDisplay, currentPage:page}" class="mat-elevation-z8 demo-table border" [hidden]="!dataSource">
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef > Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="address">
+        <mat-header-cell *matHeaderCellDef > Address </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.address}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="department">
+        <mat-header-cell *matHeaderCellDef > Department </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{departments[element.department]}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="telephone">
+        <mat-header-cell *matHeaderCellDef > Telephone </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.telephone | ifempty}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="view">
+        <mat-header-cell *matHeaderCellDef > View </mat-header-cell>
+        <mat-cell *matCellDef="let element">  <button mat-stroked color="success" (click)="details(element)" class="btn btn-success"><mat-icon>settings_overscan</mat-icon></button> </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="update">
+        <mat-header-cell *matHeaderCellDef > Update </mat-header-cell>
+        <mat-cell *matCellDef="let element"> <button (click)="update(element)" class="btn btn-success"><mat-icon>mode_edit</mat-icon></button> </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="delete">
+        <mat-header-cell *matHeaderCellDef > Delete </mat-header-cell>
+        <mat-cell *matCellDef="let element">  <button (click)="delete(element.clinicId)" class="btn btn-success"><mat-icon>delete_forever</mat-icon></button></mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+    </mat-table>
+  </section>
+  </div>
+
+
+  </div>

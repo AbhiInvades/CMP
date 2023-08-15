@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CMP_Server_API", "CMP_Server_API.csproj", "{6946FEFE-E08E-48CA-9613-922DB5652000}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CMP_Server_API.Tests", "..\CMP_Server_API.Tests\CMP_Server_API.Tests.csproj", "{BCE32F83-A24F-4B8B-B559-D8C567C15690}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6946FEFE-E08E-48CA-9613-922DB5652000}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6946FEFE-E08E-48CA-9613-922DB5652000}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6946FEFE-E08E-48CA-9613-922DB5652000}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6946FEFE-E08E-48CA-9613-922DB5652000}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCE32F83-A24F-4B8B-B559-D8C567C15690}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCE32F83-A24F-4B8B-B559-D8C567C15690}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCE32F83-A24F-4B8B-B559-D8C567C15690}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCE32F83-A24F-4B8B-B559-D8C567C15690}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {88E7E913-EC2A-4FCE-A1DE-3A05F3D9689C}
+	EndGlobalSection
+EndGlobal

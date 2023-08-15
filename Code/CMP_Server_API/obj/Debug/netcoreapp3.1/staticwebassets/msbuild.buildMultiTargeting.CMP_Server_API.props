@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\CMP_Server_API.props" />
+</Project>

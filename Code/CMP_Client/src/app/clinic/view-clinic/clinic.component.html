@@ -1,0 +1,106 @@
+<div class="container">
+  <div *ngIf="clinic" class="header_container">
+      <h1>{{clinic.name}}</h1>
+      <div>{{clinic.address}}</div>
+      <div>Contact : {{clinic.telephone}}</div>
+    </div>
+  <div class="table">
+    <div class="title">
+      <h2>List of Staff</h2>
+
+    </div>
+
+
+    <div class="table-wrapper">
+      <table >
+        <thead >
+          <th >
+           Staff ID
+          </th >
+          <th >
+            Name
+          </th>
+          <th >
+            Contact
+          </th>
+          <th>
+            ShiftTime
+            <select [(ngModel)]="shiftSelected" (ngModelChange)="filterByShift($event)" class="dropdown">
+              <option *ngFor="let shiftTimeClass of shifts" value="{{shiftTimeClass.id}}">
+                {{shiftTimeClass.shift}}
+              </option>
+            </select>
+          </th>
+          <th>
+            Gender
+          </th>
+          <th>
+            Role
+          </th>
+          <th>
+            Age
+          </th>
+          <th>
+            View
+          </th>
+          <th>
+            Update
+          </th>
+          <th>
+            Delete
+          </th>
+        </thead>
+        <tbody *ngIf="staffsTemp.length>0">
+
+
+
+              <tr *ngFor="let staff of staffsTemp | paginate:{itemsPerPage : itemsToDisplay, currentPage: page}">
+                <td>
+                  {{staff.staffID | ifempty}}
+                </td>
+                <td class="photo">
+                  <img src="{{imageToShow.get(staff.staffID)}}" class="profile"/>
+
+                    {{staff.name | ifempty}}
+                </td>
+                <td>
+                     {{staff.phone | ifempty}}
+                </td>
+                <td>
+
+                  <select [ngModel]="staff.shiftTime" (ngModelChange)="changeShift($event, staff)" class="dropdown">
+                    <option *ngFor="let shiftTimeClass of shifts2" value="{{shiftTimeClass.id}}">
+                      {{shiftTimeClass.shift}}
+                    </option>
+                  </select>
+                </td>
+                <td>
+                  {{genders[staff.gender]}}
+                </td>
+                <td>
+                    {{roles[staff.role] | ifempty}}
+                </td>
+                <td>
+                  {{staff.dob|dobToAge|ifempty}}
+                </td>
+                <td><button  (click)="details(staff)"><mat-icon>settings_overscan</mat-icon></button></td>
+                <td><button (click)="update(staff)"><mat-icon>mode_edit</mat-icon></button></td>
+                <td><button (click)="delete(staff.staffID)"><mat-icon>delete_forever</mat-icon></button></td>
+              </tr>
+              <tr>
+                <td colspan="3"></td>
+
+
+              </tr>
+        </tbody>
+      </table>
+    </div>
+
+  <div class="controls">
+    <button routerLink="/staff/add">Add Staff</button>
+    <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+  </div>
+
+
+  </div>
+</div>

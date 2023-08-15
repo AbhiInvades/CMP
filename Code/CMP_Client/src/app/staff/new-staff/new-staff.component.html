@@ -1,0 +1,194 @@
+<div class="container">
+  <div class="form">
+    <div class="grid">
+      <legend> Staff Information
+        <span *ngIf="isUpdate">{{staff.staffID+"."+staff.name}}</span>
+      </legend>
+      <form  enctype="multipart/form-data" (ngSubmit) = "submit()" >
+        <div class="table">
+              <label for="ClinicId">Clinic Id</label>
+              <div class="input">
+                <select *ngIf="clinic && clinic.clinicId"  [(ngModel)]="clinic.clinicId" [ngModelOptions]="{standalone: true}" (ngModelChange)="onChangeClinic($event)">
+                  <option *ngFor="let clinic of clinics" value="{{clinic.clinicId}}">
+                    {{clinic.clinicId+":"+clinic.name}}
+                  </option>
+                </select>
+              </div>
+
+
+              <label for="Name">Name  </label>
+              <div class="input">
+                <input  [(ngModel)]="staff.name" type="text" id="Name" name="Name" placeholder="Enter name" [ngModelOptions]="{standalone: true}" required #name="ngModel">
+                <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
+
+                  <div *ngIf="name.errors?.['required']">
+                    Name is required.
+                  </div>
+                  <div *ngIf="name.errors?.['minlength']">
+                    Name must be at least 6 characters long.
+                  </div>
+                  <div *ngIf="name.errors?.['forbiddenName']">
+                    Name cannot be Bob.
+                  </div>
+
+                </div>
+              </div>
+
+
+
+              <label for="dob">DOB  </label>
+              <div class="input">
+                <input [(ngModel)]="staff.dobS" type="date" id="dob" name="dob" [ngModelOptions]="{standalone: true}" [value]="date" required max="{{validDob}}" #dob="ngModel">
+                <div *ngIf="dob.invalid && (dob.dirty || dob.touched)" class="alert">
+
+                  <div *ngIf="dob.errors?.['required']">
+                    Date of Birth is required. (Must be above 18)
+                  </div>
+                  <div *ngIf="dob.errors?.['min']">
+                    Person must be older than 18 years.
+                  </div>
+
+                </div>
+              </div>
+
+
+              <label for="shiftTime">Shift  </label>
+              <div class="input">
+                <select [(ngModel)]="staff.shiftTime"  name="shiftTime"    [ngModelOptions]="{standalone: true}" required #shift="ngModel">
+                  <option value="undefined" selected disabled>Select Shift Time</option>
+                  <option *ngFor="let shiftTimeClass of shifts" value="{{shiftTimeClass.id}}">
+                    {{shiftTimeClass.shift}}
+                  </option>
+                </select>
+                <div *ngIf="shift.invalid && (shift.dirty || shift.touched)" class="alert">
+
+                  <div *ngIf="shift.errors?.['required']">
+                    Shift Time is required.
+                  </div>
+
+                </div>
+              </div>
+
+
+              <label for="phone">Contact  </label>
+              <div class="input">
+                <input  [(ngModel)]="staff.phone" type="number" id="phone" name="phone" placeholder="Enter phone no." [ngModelOptions]="{standalone: true}" required min="1000000" #contact="ngModel">
+                <div *ngIf="contact.invalid && (contact.dirty || contact.touched)" class="alert">
+
+                  <div *ngIf="contact.errors?.['required']">
+                    Contact is required.
+                  </div>
+                  <div *ngIf="contact.errors?.['min']">
+                    Invalid contact (should have at least 8 digits)
+                  </div>
+                </div>
+              </div>
+
+
+
+              <label for="gender">Gender  </label>
+              <div class="input">
+                <select [(ngModel)]="staff.gender" name="gender"    [ngModelOptions]="{standalone: true}" required #gender="ngModel">
+                  <option value="undefined" selected disabled>Select Gender</option>
+                  <option *ngFor="let GenderClass of genders" value="{{GenderClass.id}}">
+                    {{GenderClass.gender}}
+                  </option>
+                </select>
+
+                <div *ngIf="gender.invalid && (gender.dirty || gender.touched)" class="alert">
+
+                  <div *ngIf="gender.errors?.['required']">
+                    Gender is required.
+                  </div>
+
+                </div>
+              </div>
+
+
+
+              <label for="role">Role  </label>
+              <div class="input">
+
+                <select  [(ngModel)]="staff.role" type="text" id="role" name="role" placeholder="Enter Role" [ngModelOptions]="{standalone: true}" required #role="ngModel">
+                  <option value="undefined" selected disabled>Select Role</option>
+                  <option *ngFor="let item of roles" value="{{item.id}}">
+                    {{item.value}}
+                  </option>
+                </select>
+                <div *ngIf="role.invalid && (role.dirty || role.touched)" class="alert">
+
+                  <div *ngIf="role.errors?.['required']">
+                    Role is required.
+                  </div>
+                </div>
+              </div>
+
+
+
+              <label for="photo" id="optional1label">Profile Image  </label>
+              <div class="input" [ngClass]="{optional1:isUpdate }" >
+                <div class="optional" *ngIf="isUpdate"><input  type="checkbox"  (change)="toggleProfileImage()">Do you want to change profile image?</div>
+                <input type="file" id="photo" name="photo" (change)="handleFileSelect($event)" required #file="ngModel" ngModel [disabled]="notChangeImage">
+                <div *ngIf="file.invalid && (file.dirty || file.touched)" class="alert">
+
+                  <div *ngIf="file.errors?.['required']">
+                    Profile image is required.
+                  </div>
+
+                </div>
+              </div>
+
+
+
+              <label for="password" id="optional2label">Password  </label>
+              <!-- <span class="input"> -->
+              <div class="input" [ngClass]="{optional2:isUpdate}">
+                <div class="optional" *ngIf="isUpdate"><input  type="checkbox" (change)="togglePWD()">Do you want to change Password?</div>
+                <input [(ngModel)]="staff.password" type="password" id="password" name="password" [ngModelOptions]="{standalone: true}" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" #password="ngModel" [disabled]="notChangePassword">
+                <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert">
+
+                  <div *ngIf="password.errors?.['required']">
+                    Password is required.
+                  </div>
+                  <div *ngIf="password.errors?.['pattern']">
+                    Password must contain :<br>
+                    <ul>
+                      <li>At least 8 characters</li>
+                      <li>UpperCase</li>
+                      <li>LowerCase</li>
+                      <li>Number</li>
+                    </ul>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- </span> -->
+
+          </div>
+
+
+
+        <!-- <table>
+          <thead>
+            <th>
+
+            </th>
+            <th>
+
+            </th>
+          </thead>
+          <tbo
+        </table> -->
+        <div class="form-group">
+          <button type="submit" [disabled]="name.invalid || contact.invalid || role.invalid || gender.invalid || shift.invalid || password.invalid || file.invalid || dob.invalid">
+            <span *ngIf="isUpdate">Update</span>
+            <span *ngIf="!isUpdate">Add Staff</span>
+          </button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+</div>

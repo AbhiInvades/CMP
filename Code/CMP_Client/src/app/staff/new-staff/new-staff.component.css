@@ -1,0 +1,93 @@
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.form {
+  position: relative;
+  top:-150px;
+
+  padding:40px;
+  border-radius: 2%;
+  border: 1px solid steelblue;
+}
+
+.form:hover {
+  box-shadow: 0px 2px 1px 1px rgb(0 100 0 / 40%), 0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 0px 1px 2px rgb(0 0 0 / 12%);
+}
+
+legend {
+  text-align: center;
+  padding: 1px;
+  display: inline;
+  border-bottom: 1px solid var(--secondary);
+}
+
+
+.table {
+  display: grid;
+  padding: 20px;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: "label div" "label div" "label div" "label div" "label div" "label div" "label div" "label div" "label div";
+}
+
+label {
+  vertical-align:sup;
+  margin-top:5px;
+}
+
+div {
+  padding:2px;
+  margin:9px;
+  display: inline;
+}
+
+.input {
+  min-height: 30px;
+  max-height: 30px;
+  font-size: small;
+  padding: 0;
+  position: relative;
+  top:-5px;
+  vertical-align: bottom;
+
+}
+
+.alert {
+  color:red;
+  position: relative;
+  left: -20px;
+}
+
+input, select {
+  display: block;
+}
+
+input.ng-invalid.ng-touched{
+  border-color: red;
+  outline-color: coral;
+}
+
+select.ng-invalid.ng-touched {
+  border-color: red;
+  outline-color: coral;
+}
+
+.optional1{
+  padding:0;
+  top:-30px;
+}
+
+.optional2 {
+  padding:0;
+  top:-20px;
+}
+
+
+
+
+

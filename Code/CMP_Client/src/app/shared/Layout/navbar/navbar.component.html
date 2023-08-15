@@ -1,0 +1,24 @@
+<div class="navbar">
+  <button  (click)="back()"><img src="../../../../assets/Images/back.png"></button>
+  <div class="left">
+
+    <div class="logo" (click)="onclick()">
+      <h1>Varian</h1>
+    </div>
+  </div>
+
+  <div class="title">
+    {{title}}
+  </div>
+
+
+<div class="right">
+  <button routerLink="/home">Clinics</button>
+  <button routerLink="/clinic">Staff</button>
+
+
+  <button *ngIf="!isLoggedIn" routerLink="/login">Login</button>
+  <button *ngIf="!isLoggedIn" routerLink="/register">Register</button>
+  <button *ngIf="isLoggedIn" (click)="logOut()"> Log Out</button>
+</div>
+</div>

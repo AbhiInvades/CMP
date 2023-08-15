@@ -1,0 +1,137 @@
+
+.container {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 91.25%;
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
+  padding:20px;
+  align-items: center;
+}
+
+.form {
+  color:var(--secondary);
+  background-image: var(--secondary);
+  box-shadow: 0px 5px 10px 10px rgb(0 0 0 / 20%), 0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%);
+  padding:25px;
+  border-radius: 5%;
+  color:var(--white);
+  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+  box-shadow: 0px 5px 10px 10px rgb(0 0 0 / 20%), 0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%);
+  padding:15px;
+  border-radius: 5%;
+  font-size: medium;
+}
+
+.form:hover {
+  box-shadow: 0px 5px 10px -5px rgb(0 0 0 / 20%), 0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%);
+
+}
+
+.form:focus-within {
+  border:2px solid steelblue;
+}
+
+.form > form {
+  box-shadow: initial;
+  border:initial;
+}
+
+.text {
+  position: relative;
+  pointer-events:none;
+  top:-20px;
+}
+
+label, legend {
+  color:var(--secondary);
+  outline: none;
+}
+
+input {
+  outline : none;
+  border : 0px;
+  border-bottom: 1px solid black;
+  height:40px;
+  background-color: transparent;
+  width: 300px;
+  font-size: medium;
+}
+
+label {
+  position: relative;
+  top:-20px;
+  pointer-events: none;
+}
+
+input:focus ~ label, input:not(:placeholder-shown) ~ label{
+  top:-50px;
+}
+
+.alert {
+  color:red;
+  margin-bottom: 10px;
+  margin-top:5px;
+}
+
+
+fieldset {
+  padding:20px;
+}
+
+
+
+mat-icon {
+  color:var(--secondary);
+  position: relative;
+  top:5px;
+}
+
+button {
+  border-radius: 10%;
+  font-size: medium;
+}
+select {
+  border-color: var(--secondary);
+  border-radius: 5%;
+  min-height: 25px;
+}
+
+.dropdown.input {
+  max-height: 35px;
+  margin-top: 10px;
+}
+
+.input {
+  padding:0px;
+  max-height: 45px;
+  margin-top:10px;
+}
+
+
+::placeholder {
+  color:#DEE8ED;
+
+}
+
+.input {
+  width: 300px;
+}
+
+.submit {
+  display: flex;
+  justify-content: center;
+}
+
+input.ng-invalid.ng-touched{
+  border-color: red;
+  outline-color: coral;
+}
+
+select.ng-invalid.ng-touched {
+  border-color: red;
+  outline-color: coral;
+}

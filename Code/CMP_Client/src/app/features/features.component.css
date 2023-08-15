@@ -1,0 +1,36 @@
+
+h3 {
+  font-size: 40px;
+  padding:50px;
+}
+
+.container {
+  text-align: center;
+  margin-inline:100px;
+  color:var(--secondary);
+}
+
+.features {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  margin:20px;
+  color:var(--secondary);
+}
+
+.feature {
+  width: 300px;
+  height: 300px;
+ color:var(--secondary);
+  box-shadow: 0px 5px 10px 5px rgb(0 0 0 / 20%), 0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%);
+}
+
+.feature:hover {
+  box-shadow: 0px 5px 10px -5px rgb(0 0 0 / 20%), 0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%);
+  border: 2px solid steelblue;
+}
+
+.icon {
+  background-size:100px;
+  font-size: 100px;
+}

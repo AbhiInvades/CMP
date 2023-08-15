@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\CMP_Server_API.core\\Controllers",
+    "\\CMP_Server_API.core\\Controllers\\Clinic_Management",
+    "\\CMP_Server_API.core\\Controllers\\Security",
+    "\\CMP_Server_API.Data\\Models",
+    "\\CMP_Server_API.Data\\Models\\ClinicModels"
+  ],
+  "PreviewInSolutionExplorer": false
+}

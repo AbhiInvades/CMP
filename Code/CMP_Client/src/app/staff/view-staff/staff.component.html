@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="user">
+    <div *ngIf="staff">
+      <div class="img">
+        <img [src]="imageToShow" >
+      </div>
+
+      <div class="text">
+        <div class="labels">
+          <div>Name </div>
+          <div>Gender </div>
+          <div>Age</div>
+          <div>ShiftTime </div>
+        </div>
+        <div class="values">
+          <div>: {{staff.name}}</div>
+          <div>: {{gender[staff.gender]}}</div>
+          <div>: {{this.age}}</div>
+          <div>:  {{shifts[staff.shiftTime]}}</div>
+        </div>
+
+
+
+      </div>
+
+      <!-- <button (click)="changeShift()">Change Shift of This Employee</button>
+      <span *ngIf="isChangeShift">
+        <select [(ngModel)]="shiftSelected" (ngModelChange)="onChangeShift($event)">
+          <option *ngFor="let shiftTimeClass of shifts" value="{{shiftTimeClass.id}}">
+            {{shiftTimeClass.shift}}
+          </option>
+        </select>
+      </span> -->
+
+    </div>
+  </div>
+</div>
+
+
+
